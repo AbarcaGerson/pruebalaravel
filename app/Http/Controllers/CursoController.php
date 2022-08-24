@@ -25,6 +25,24 @@ class CursoController extends Controller
 
     //Crear el metodo store, recibir los datos desde el formulario
     public function store(Request $request){
+
+        //Validacion que verifique que los datos enviados desde la vista crear curso
+        //traigan datos consigo, solo si supera la validacion continua con el codigo
+        //caso contrario que retorne de nuevo al formulario inicial
+
+        $request->validate([
+            //Reglas de validacion que deseamos
+            //Verificar que los campos deseados deben tener datos requeridos (required)
+            //Este campo debe ser requerido
+            'name' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+
+            //Si las 3 reglas cumplen lo requerido entonces deja seguir el programa
+        ]);
+
+
+
         //Mostrar lo que hay en el objeto
         //return $request->all();
 

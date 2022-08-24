@@ -17,6 +17,15 @@
             <input type="text" name="name">
         </label>
 
+        <!--Directiva de blade/funciona de manera similar a un IF-->
+        <!--Si ha habido algun error de validacion en el campo name-->
+        @error('name')
+            <!--Para imprimir el mensaje de error-->
+            <br>
+                <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <br>
         <label>
             Descripcion:
@@ -24,12 +33,26 @@
             <textarea name="descripcion" rows="5"></textarea>
         </label>
 
+        @error('descripcion')
+            <!--Para imprimir el mensaje de error-->
+            <br>
+                <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <br>
         <label>
             Categoria:
             <br>
             <input type="text" name="categoria">
         </label>
+
+        @error('categoria')
+            <!--Para imprimir el mensaje de error-->
+            <br>
+                <small>*{{$message}}</small>
+            <br>
+        @enderror
 
         <br>
         <button type="submit">Enviar formulario</button>
