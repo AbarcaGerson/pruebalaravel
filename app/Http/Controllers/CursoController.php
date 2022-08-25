@@ -34,8 +34,8 @@ class CursoController extends Controller
             //Reglas de validacion que deseamos
             //Verificar que los campos deseados deben tener datos requeridos (required)
             //Este campo debe ser requerido
-            'name' => 'required',
-            'descripcion' => 'required',
+            'name' => 'required|max:10',
+            'descripcion' => 'required|min:|10',
             'categoria' => 'required'
 
             //Si las 3 reglas cumplen lo requerido entonces deja seguir el programa
@@ -91,6 +91,18 @@ class CursoController extends Controller
 
     //Metodo para enviar informacion actualizada
     public function update(Request $request, Curso $curso){
+
+        $request->validate([
+            //Reglas de validacion que deseamos
+            //Verificar que los campos deseados deben tener datos requeridos (required)
+            //Este campo debe ser requerido
+            'name' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+
+            //Si las 3 reglas cumplen lo requerido entonces deja seguir el programa
+        ]);
+
         $curso->name = $request->name;
         $curso->descripcion = $request->descripcion;
         $curso->categoria = $request->categoria;
